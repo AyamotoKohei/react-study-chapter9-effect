@@ -13,10 +13,9 @@ const Timer: VFC<{ limit: number }> = ({ limit }) => {
     return () => clearInterval(timerId);
   }, []);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (timerLeft === 0) setTimerLeft(limit);
-  });
+  }, [timerLeft, limit]);
 
   return (
     <Card>
