@@ -3,9 +3,9 @@ import { Button, Card, Icon, Statistic } from 'semantic-ui-react';
 import './Timer.css';
 
 const Timer: VFC<{ limit: number }> = ({ limit }) => {
-  const [timerLeft, setTimerLeft] = useState(limit);
-  const reset = (): void => setTimerLeft(limit);
-  const tick = (): void => setTimerLeft((t) => t - 1);
+  const [timeLeft, setTimeLeft] = useState(limit);
+  const reset = (): void => setTimeLeft(limit);
+  const tick = (): void => setTimeLeft((t) => t - 1);
 
   useEffect(() => {
     const timerId = setInterval(tick, 1000);
@@ -14,19 +14,19 @@ const Timer: VFC<{ limit: number }> = ({ limit }) => {
   }, []);
 
   useEffect(() => {
-    if (timerLeft === 0) setTimerLeft(limit);
-  }, [timerLeft, limit]);
+    if (timeLeft === 0) setTimeLeft(limit);
+  }, [timeLeft, limit]);
 
   return (
     <Card>
       <Statistic className="number-board">
         <Statistic.Label>time</Statistic.Label>
-        <Statistic.Value>{timerLeft}</Statistic.Value>
+        <Statistic.Value>{timeLeft}</Statistic.Value>
       </Statistic>
       <Card.Content>
         <Button color="red" fluid onClick={reset}>
           <Icon name="redo" />
-          reset
+          Reset
         </Button>
       </Card.Content>
     </Card>
