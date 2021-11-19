@@ -6,7 +6,7 @@
 #   Riakuto! Project by Klemiwary Books
 
 targetProjects=(
-    "counter-hooks/"
+    "countdown-timer-hooks/"
 )
 
 # execute each test
